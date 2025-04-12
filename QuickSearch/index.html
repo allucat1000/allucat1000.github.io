@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Search</title>
+    <script src="main.js"></script>
+    <style type="text/css">
+        body{
+            background-color: rgb(24, 24, 24);
+            width: 100vw;
+            height: 100vh;
+            margin: 0px;
+        }
+        h1{
+            text-align: center;
+            color: #ffffff;
+            margin: auto;
+            padding: 1em;
+            font-size: 4em;
+        }
+        h3{
+            text-align: center;
+            color: #ffffff;
+            margin: auto;
+            padding: 0em;
+            font-size: 1.5em;
+        }
+        p{
+            text-align: center;
+            color: #ffffff3f;
+            margin: auto;
+            padding: 2em;
+            font-size: 0.75em;
+        }
+        .search-button{
+            background-color: rgb(35, 35, 35);
+            border-style: solid;
+            border-width: 0.2em;
+            border-color: rgb(55, 55, 55);
+            color: #ffffff;
+            font-size: large;
+            border-radius: 1em;
+            display: block;
+            width: 15em;
+            height: 3em;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            transition: 0.15s;
+            margin-top: 1em;
+        }
+        .search-button:hover{
+            cursor: pointer;
+            background-color: rgb(45, 45, 45);
+            border-color: rgb(65, 65, 65);
+        }
+        #searchinput{
+            padding-left: 20px;
+            font-size: 1em;
+            border-color: rgb(80, 80, 80);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5em;
+            color: #ffffff;
+            background-color: rgb(50, 50, 50);
+            text-align: left;
+            width: 35em;
+            height: 4em;
+            display: block;
+            border-style: solid;
+            border-width: 0.2em;
+            border-radius: 3em;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Quick Search</h1>
+        <h3>A half-working search engine made in an hour.</h3>
+        <input type="text" id="searchinput">
+        <button class="search-button" onclick="searchButton()">Get a quick result</button>
+        <p>This "search engine" uses DuckDuckGo's free answer API</p>
+    </div>
+</body>
+</html>
