@@ -33,22 +33,29 @@ function clickerActivate() {
     siteDiv.appendChild(clickerButton);
     siteDiv.appendChild(backButton);
 
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+        }
+    });
+
     backButton.onclick = function() {
         location.reload();
     };    
 
     clickerButton.onclick = function() {
         Score += 1;
-        scoreTitle.textContent = `Score: ${Score}`;
         switch (Score) {
             case 100:
-                
+                scoreTitle.textContent = `Congrats on ${Score} clicks!` ;
                 break;
         
             default:
-
+                scoreTitle.textContent = `Score: ${Score}`;
                 break;
         }
+        
     };    
 
 }
