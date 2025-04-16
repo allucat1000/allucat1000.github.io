@@ -45,11 +45,15 @@ function clickerActivate() {
 
     clickerButton.onclick = function() {
         Score += 1;
-        if ((String(Score - 1).length !== String(Score).length) && String(Score).length >= 3) {
-            scoreTitle.textContent = `Congrats on ${Score} clicks!` ;
+        if (Score >= 100 && checkPOT(Score)) {
+            scoreTitle.textContent = `Congrats on ${Score} clicks!`;
         } else {
             scoreTitle.textContent = `Score: ${Score}`;
         }
+        
+        function checkPOT(n) {
+            return n.toString().match(/^1(0+)$/);
+        }        
         
     };    
 
