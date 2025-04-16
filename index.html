@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="HuopaLogo.png" as="image">
     <title>Allucat1000's Website</title>
-    <meta property="og:title" content="Allucat1000's Website">
-    <meta property="og:description" content="funny website">
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/allucat1000/allucat1000.github.io/refs/heads/main/HuopaLogo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+    <meta name="description" content="Welcome to Allucat1000's website. Here you can find my projects and get to know me.">
+    <meta property="og:title" content="Allucat1000 - Programmer">
+    <meta property="og:description" content="Welcome to my website! You can see my projects here and get to know me a bit better.">
+    <link rel="icon" type="image/x-icon" href="HuopaLogo.png" type="image/png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet"></noscript>
+    
+    <meta name="robots" content="all">
+    <link rel="preload" href="IMG_3795.png" as="image">
+
+    
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Allucat1000",
+          "url": "https://allucat1000.github.io",
+          "sameAs": [
+            "https://youtube.com/@PeanutbutterMonke",
+            "https://allucat1000.itch.io"
+          ],
+          "jobTitle": "Developer",
+          "knowsAbout": ["Scratch", "Godot", "HTML", "CSS", "JavaScript"],
+          "description": "My personal website showcasing my projects and interests."
+        }
+        </script>
+        
 
     <style type="text/css">
         body{
@@ -88,20 +112,25 @@
             margin-right: auto;
             opacity: 0;
             animation: fadeIn 0.5s linear forwards;
-            animation-delay: 1.5s;
+            animation-delay: 2s;
         }
         .project-item{
             font-family: 'Poppins', sans-serif;
             padding-right: 1em;
             padding-left: 1em;
+            padding-top: 0.7em;
+            padding-bottom: 0.7em;
             height: 4em;
-            color: #000000;
+            color: #00000000;
             background-color: rgb(255, 255, 255);
             border-style: solid;
             border-radius: 0.8em;
             border-width: 0.2em;
             border-color: rgb(170, 170, 170);
             transition: 0.1s;
+        }
+        .project-item-text{
+            color: #000000;
         }
         .project-item:hover{
             background-color: rgb(220, 220, 220);
@@ -202,39 +231,40 @@
 </head>
 <body>
 <div class="site" id="site">
-    <header>
+    <main>
         <h1 class="title">Welcome to my website!</h1>
+        <section>
+            <img src="HuopaLogo.png" alt="Allucat1000 pfp" class="centericon">
 
-        <img src="https://raw.githubusercontent.com/allucat1000/allucat1000.github.io/refs/heads/main/HuopaLogo.png" alt="Allucat1000 pfp" class="centericon">
+            <h2 class="info-title">Hello! My name is Allucat1000. I like programming and playing <a class="link" href="https://www.gorillatagvr.com/">Gorilla Tag</a>.</h2>
 
-        <h2 class="info-title">Hello! My name is Allucat1000. I like programming and playing <a class="link" href="https://www.gorillatagvr.com/">Gorilla Tag</a>.</h2>
-
-        <h2 class="info-title">I started programming on Scratch in 2021. Then in 2024 I learned the basics of Godot. I'm currently learning HTML and CSS and JavaScript.</h2>
-
-        <h3 class="semi-title">These are my projects:</h3>
-    </header>
-    <div class="bgdiv">
-        <button onclick="openURL('https://allucat1000.github.io/QuickSearch')" class="project-item">QuickSearch</button>
-    </div>
-    <h4 class="profiles-title">And these are my profiles:</h4>
-    <div class="bgdiv">
-        <button onclick="openURL('https://youtube.com/@PeanutbutterMonke')" class="project-item">
-            <img src="https://www.iconpacks.net/icons/1/free-icon-youtube-141.png" alt="icon" style="width:25px; height:25px;">
-        </button>
-            
-        <button onclick="openURL('https://allucat1000.itch.io')" class="project-item">
-            <img src="https://static-00.iconduck.com/assets.00/itch-io-icon-512x512-wwio9bi8.png" alt="icon" style="width:25px; height:25px;">
-        </button>
-    </div>
-    <button onclick="clickerActivate()" class="clickeractivate">Funny clicker</button>
+            <h2 class="info-title">I started programming on Scratch in 2021. Then in 2024 I learned the basics of Godot. I'm currently learning HTML and CSS and JavaScript.</h2>
+        </section>
+        <section>
+            <h3 class="semi-title">These are my projects:</h3>
+            <div class="bgdiv">
+                <a class="project-item" href="https://allucat1000.github.io/QuickSearch" style="color: #000000;">
+                    QuickSearch
+                  </a>                  
+            </div>
+        </section>
+        <section>
+            <h4 class="profiles-title">And these are my profiles:</h4>
+            <div class="bgdiv">
+                <a class="project-item" href="https://youtube.com/@PeanutbutterMonke" aria-label="YouTube Profile">
+                    <img src="https://www.iconpacks.net/icons/1/free-icon-youtube-141.png" alt="YouTube icon" style="width:25px; height:25px;">
+                </a>
+                  
+                <a class="project-item" href="https://allucat1000.itch.io" aria-label="Itch.io Profile">
+                    <img src="https://static-00.iconduck.com/assets.00/itch-io-icon-512x512-wwio9bi8.png" alt="Itch.io icon" style="width:25px; height:25px;">
+                </a>
+        </div>
+        </section>
+        <button onclick="clickerActivate()" class="clickeractivate">Funny clicker</button>
+    </main>
 </div>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 
-<script>
-    function openURL(p1) {
-        window.open(p1)
-    }
-</script>
 </body>
 </html>

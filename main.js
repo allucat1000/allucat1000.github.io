@@ -1,10 +1,9 @@
 function clickerActivate() {
-    const oldElems = document.getElementById("site");
-    oldElems.innerHTML = "";
+    const siteDiv = document.getElementById("site"); 
+    siteDiv.innerHTML = "";
 
     let Score = 0
 
-    const siteDiv = document.getElementById("site"); 
     const clickerButton = document.createElement("button");
     const backButton = document.createElement("button");
     const newTitle = document.createElement("h1");
@@ -46,14 +45,10 @@ function clickerActivate() {
 
     clickerButton.onclick = function() {
         Score += 1;
-        switch (Score) {
-            case 100:
-                scoreTitle.textContent = `Congrats on ${Score} clicks!` ;
-                break;
-        
-            default:
-                scoreTitle.textContent = `Score: ${Score}`;
-                break;
+        if ((String(Score - 1).length !== String(Score).length) && String(Score).length >= 3) {
+            scoreTitle.textContent = `Congrats on ${Score} clicks!` ;
+        } else {
+            scoreTitle.textContent = `Score: ${Score}`;
         }
         
     };    
