@@ -6,6 +6,7 @@
     <title>Allucat1000's Website</title>
     <meta property="og:title" content="Allucat1000's Website">
     <meta property="og:description" content="funny website">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/allucat1000/allucat1000.github.io/refs/heads/main/HuopaLogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
 
     <style type="text/css">
@@ -136,10 +137,71 @@
                 opacity: 1;
             }
         }
+
+        /* Clicker CSS here */
+        
+        .clickeractivate{
+            opacity: 0.5;
+            background-color: #00000000;
+            color: #ffffff;
+            position: absolute;
+            bottom: 0px;
+            left: 60px;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .clicker-button{
+            font-family: 'Poppins', sans-serif;
+            border-color: #13668f;
+            border-width: 0.3em;
+            color: #ffffff;
+            background-color: #1c7bd4;
+            display: block;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 12em;
+            height: 12em;
+            border-radius: 50%;
+            border-style: solid;
+            transition: 0.1s ease;
+        }  
+        .clicker-button:hover{
+            border-color: #115c82;
+            background-color: #1971c3;
+        }
+        .clicker-button:active{
+            border-color: #0e4e6d;
+            background-color: #1664ac;
+            transform: scale(0.95);
+        }
+        .clicker-back-button{
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            position: absolute;
+            bottom: 0px;
+            margin-top: 0em;
+            height: 4em;
+            color: #000000;
+            background-color: rgb(255, 255, 255);
+            border-style: solid;
+            border-radius: 0.8em;
+            border-width: 0.2em;
+            border-color: rgb(170, 170, 170);
+            transition: 0.1s;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .clicker-back-button:hover{
+            border-color: rgb(120, 120, 120);
+            background-color: rgb(205, 205, 205);
+        }
     </style>
 </head>
 <body>
-<div class="site">
+<div class="site" id="site">
     <header>
         <h1 class="title">Welcome to my website!</h1>
 
@@ -164,9 +226,10 @@
             <img src="https://static-00.iconduck.com/assets.00/itch-io-icon-512x512-wwio9bi8.png" alt="icon" style="width:25px; height:25px;">
         </button>
     </div>
+    <button onclick="clickerActivate()" class="clickeractivate">Funny clicker</button>
 </div>
 
-
+<script src="main.js"></script>
 
 <script>
     function openURL(p1) {
