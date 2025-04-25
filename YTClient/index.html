@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTClient</title>
+    <style type="text/css">
+        body{
+            margin: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(20, 20, 20);
+        }
+        .mainTitle{
+            color: #00000000;
+            -webkit-text-stroke: #ffffff 1.5px;
+            text-align: center;
+            font-size: 4em;
+        }
+        .mainSearchBar{
+            outline: none;
+            font-size: 1em;
+            padding-left: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            color: #ffffff;
+            background-color: rgb(35, 35, 35);
+            border-color: rgb(55, 55, 55);
+            padding-right: 50px;
+            border-style: solid;
+            width: 30em;
+            height: 4em;
+            border-radius: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainPage">
+        <h1 class="mainTitle">YT Client</h1>
+        <input id="mainSearchBar" placeholder="What will you search for today?" class="mainSearchBar">
+        <script>
+            document.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    window.location.href = `search/index.html?q=${mainSearchBar.value}`;
+                }
+            });
+        </script>
+    </div> 
+</body>
+<script src="main.js" defer></script>
+</html>
