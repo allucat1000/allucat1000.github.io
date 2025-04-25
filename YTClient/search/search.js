@@ -5,7 +5,18 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
     const searchQuery = url.searchParams.get("q");
 
     if (!searchQuery) {
-        console.error("No query parameter provided.");
+        const searchDiv = document.getElementById("searchResults");
+        const resultErrorTitle = document.createElement("h1");
+        resultErrorTitle.textContent = 'No results found.';
+        resultErrorTitle.classList.add("smallTitle")
+        searchDiv.appendChild(resultErrorTitle);
+        const resultErrorBackButton = document.createElement("button");
+        resultErrorBackButton.classList.add("button")
+        resultErrorBackButton.textContent = 'Go back';
+        resultErrorBackButton.onclick = function() {
+            window.location.href = "../index.html"
+        }
+        searchDiv.appendChild(resultErrorBackButton);
         return;
     }
 
