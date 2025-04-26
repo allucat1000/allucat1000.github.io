@@ -27,7 +27,39 @@
             height: 4em;
             padding-left: 20px;
             padding-right: 50px;
-            margin: 0 auto; /* centers it */
+            margin: 0 auto;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: rgb(35, 35, 35);
+            border: 1px solid rgb(55, 55, 55);
+            border-radius: 1.5em;
+            outline: none;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #232323;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5em 1em;
+            position: relative;
+        }
+
+        .navItem {
+            -webkit-text-stroke: #fff 1px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 0.5em;
+            position: absolute;
+            left: 1em;
+        }
+
+        .topSearchBar {
+            width: 100%;
+            max-width: 20em;
+            height: 3em;
+            padding-left: 20px;
             font-size: 1em;
             color: #ffffff;
             background-color: rgb(35, 35, 35);
@@ -37,16 +69,29 @@
             box-sizing: border-box;
         }
 
+
+
     </style>
 </head>
 <body>
     <div class="mainPage">
+        <nav>
+            <a class="navItem" href="index.html">YT Client</a>
+            <input id="topSearchBar" placeholder="Search for something here" class="topSearchBar">
+        </nav>
+        
+        
         <h1 class="mainTitle">YT Client</h1>
         <input id="mainSearchBar" placeholder="What will you search for today?" class="mainSearchBar">
         <script>
             document.addEventListener("keydown", function(event) {
-                if (event.key === "Enter") {
+                const activeElement = document.activeElement;
+                if (activeElement.id === "mainSearchBar" && event.key === "Enter") {
                     window.location.href = `search/index.html?q=${mainSearchBar.value}`;
+                }
+
+                if (activeElement.id === "topSearchBar" && event.key === "Enter") {
+                    window.location.href = `search/index.html?q=${topSearchBar.value}`;
                 }
             });
         </script>
