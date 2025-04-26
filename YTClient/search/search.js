@@ -64,7 +64,7 @@ async function generateVideoInfo(vidID) {
 
             const title = document.createElement("a");
             title.textContent = jsonData.title;
-            title.href = `https://yout-ube.com/watch?v=${vidID}`;
+            title.href = `../watch/index.html?v=${vidID}`;
             title.target = "_blank";
             title.style.color = "white";
             title.style.fontSize = "1.2em";
