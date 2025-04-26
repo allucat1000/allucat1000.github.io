@@ -21,7 +21,7 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
     }
 
     const VidSearch = encodeURIComponent(searchQuery);
-    const baseYTURL = `https://www.youtube.com/results?search_query=${VidSearch}`;
+    const baseYTURL = `https://www.youtube.com/results?search_query=${VidSearch}&gl=GB&hl=en`;
     const response = await fetch(proxy + encodeURIComponent(baseYTURL));
 
 
@@ -96,4 +96,8 @@ async function generateVideoInfo(vidID) {
     } catch (e) {
         console.error("Error fetching video info:", e);
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
