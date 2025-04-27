@@ -27,7 +27,7 @@ if (!vidURL) {
     videoPlayer.allowFullscreen = true;
 
 
-    videoPlayer.width = "75%";
+    videoPlayer.width = "100%";
     videoPlayer.height = "720em";
 
     videoPlayer.style.maxWidth = "100%";
@@ -39,6 +39,7 @@ if (!vidURL) {
     const videoId = vidURL;
     const vidPlayerTitle = document.createElement("h1");
     const vidPlayerAuthor = document.createElement("a");
+    const vidPlayerDate = document.createElement("h3");
     const oEmbedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
     fetch(oEmbedUrl)
         .then(response => response.json())
@@ -48,15 +49,39 @@ if (!vidURL) {
             vidPlayerAuthor.href = data.author_url;
         })
     .catch(error => {
-        console.error('Failed to load video data:', error);
+        console.error('Failed to fetch video data:', error);
         vidPlayerTitle.textContent = "Failed to load title";
+        vidPlayerAuthor.textContent = "Failed to load author";
     });
 
- 
-    
+    const vidDataURL = `https://returnyoutubedislikeapi.com/votes?videoId=${videoId}`
+    fetch(vidDataURL)
+        .then(response => response.json())
+        .then(data => {
+            const date = new Date(data.dateCreated);
+            const options = {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+            };
+            
+            vidPlayerDate.textContent = date.toLocaleString("en-US", options);
+            
+        })
+    .catch(error => {
+        console.error('Failed to fetch video date:', error);
+        vidPlayerDate.textContent = "Failed to load date created";
+    });
+    const vidPlayerExtraInfoContainer = document.createElement("div");
+    vidPlayerExtraInfoContainer.classList.add("vidPlayerInfoContainer");
+    vidPlayerDate.classList.add("authorText");
     vidPlayerTitle.classList.add("titleText");
     vidPlayerAuthor.classList.add("authorText");
     videoPlayerPage.append(vidPlayerTitle);
     videoPlayerPage.append(vidPlayerAuthor);
+    videoPlayerPage.append(vidPlayerExtraInfoContainer);
+    vidPlayerExtraInfoContainer.append(vidPlayerDate)
 }
 
