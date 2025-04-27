@@ -45,9 +45,9 @@ async function generateVideoInfo(vidID) {
             const jsonData = await response.json();
 
             const searchDiv = document.getElementById("searchResults");
-
-            const videoCard = document.createElement("div");
-            videoCard.style.margin = "30px";
+            const videoCard = document.createElement("button");
+            videoCard.style.width = "90%"
+            videoCard.style.margin = "30px auto";
             videoCard.style.padding = "15px";
             videoCard.style.border = "1.5px solid #444";
             videoCard.style.borderRadius = "10px";
@@ -55,6 +55,19 @@ async function generateVideoInfo(vidID) {
             videoCard.style.display = "flex";
             videoCard.style.alignItems = "center";
             videoCard.style.gap = "15px";
+            videoCard.style.transition = "0.1s"
+            videoCard.addEventListener('mouseenter', () => {
+                videoCard.style.cursor = "pointer";
+                videoCard.style.backgroundColor = "#333";
+            });
+            videoCard.addEventListener('mouseleave', () => {
+                videoCard.style.cursor = "default";
+                videoCard.style.backgroundColor = "#222";
+            });
+
+            videoCard.onclick = function() {
+                window.location.href = `../watch/index.html?v=${vidID}`;
+            }
 
             const thumbnail = document.createElement("img");
             thumbnail.src = jsonData.thumbnail_url;
