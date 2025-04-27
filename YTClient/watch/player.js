@@ -36,11 +36,17 @@ if (!vidURL) {
     videoContainer.append(videoPlayer);
     videoPlayerPage.append(videoContainer);
 
+
+    // Video info element creation
     const videoId = vidURL;
     const vidPlayerTitle = document.createElement("h1");
     const vidPlayerAuthor = document.createElement("a");
     const vidPlayerDate = document.createElement("h3");
+    const vidPlayerDescription = document.createElement("h3");
+
+    // Video info fetching
     const oEmbedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
+
     fetch(oEmbedUrl)
         .then(response => response.json())
         .then(data => {
@@ -74,14 +80,44 @@ if (!vidURL) {
         console.error('Failed to fetch video date:', error);
         vidPlayerDate.textContent = "Failed to load date created";
     });
+
+    const vidDescURL = `https://corsproxy.io/?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D${videoId}`;
+
+    fetch(vidDescURL)
+    .then(response => response.text())
+    .then(data => {
+        let pattern, match = "";
+        
+        const STAT = "description"; 
+        
+        switch (STAT) {
+            case "description":
+                pattern = /"attributedDescriptionBodyText":{"content":"((?:[^"\\]|\\.)*)"/;
+                match = data.match(pattern);
+                
+                if (match) {
+                    vidPlayerDescription.textContent = match[1].replace(/\\n/g, "\n");
+                } else {
+                    vidPlayerDescription.textContent = "Description not found";
+                }
+                break;
+                
+        }
+    })
+    .catch(error => {
+        console.error('Failed to fetch video description:', error);
+        vidPlayerDescription.textContent = "Failed to load description";
+    });
     const vidPlayerExtraInfoContainer = document.createElement("div");
     vidPlayerExtraInfoContainer.classList.add("vidPlayerInfoContainer");
-    vidPlayerDate.classList.add("authorText");
+    vidPlayerDate.classList.add("descText");
+    vidPlayerDescription.classList.add("authorText");
     vidPlayerTitle.classList.add("titleText");
-    vidPlayerAuthor.classList.add("authorText");
+    vidPlayerAuthor.classList.add("descText");
     videoPlayerPage.append(vidPlayerTitle);
     videoPlayerPage.append(vidPlayerAuthor);
     videoPlayerPage.append(vidPlayerExtraInfoContainer);
-    vidPlayerExtraInfoContainer.append(vidPlayerDate)
+    vidPlayerExtraInfoContainer.append(vidPlayerDate);
+    vidPlayerExtraInfoContainer.append(vidPlayerDescription);
 }
 
