@@ -38,21 +38,25 @@ if (!vidURL) {
 
     const videoId = vidURL;
     const vidPlayerTitle = document.createElement("h1");
+    const vidPlayerAuthor = document.createElement("a");
     const oEmbedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
     fetch(oEmbedUrl)
         .then(response => response.json())
         .then(data => {
-            const vidTitleValue = data.title;
-            vidPlayerTitle.textContent = vidTitleValue;
+            vidPlayerTitle.textContent = data.title;
+            vidPlayerAuthor.textContent = data.author_name;
+            vidPlayerAuthor.href = data.author_url;
         })
     .catch(error => {
-        console.error('Error fetching video title:', error);
+        console.error('Failed to load video data:', error);
         vidPlayerTitle.textContent = "Failed to load title";
     });
 
  
     
     vidPlayerTitle.classList.add("titleText");
+    vidPlayerAuthor.classList.add("authorText");
     videoPlayerPage.append(vidPlayerTitle);
+    videoPlayerPage.append(vidPlayerAuthor);
 }
 
