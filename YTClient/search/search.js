@@ -82,6 +82,7 @@ async function generateVideoInfo(vidID) {
             title.style.color = "white";
             title.style.fontSize = "1.2em";
             title.style.textDecoration = "none";
+            title.style.textAlign = "left";
 
             const author = document.createElement("a");
             const authorUrl = jsonData.author_url;
@@ -95,6 +96,7 @@ async function generateVideoInfo(vidID) {
             author.style.textDecoration = "none";
             author.style.display = "block";
             author.style.marginTop = "5px";
+            author.style.textAlign = "left";
 
             const textContainer = document.createElement("div");
             textContainer.appendChild(title);
