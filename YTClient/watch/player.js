@@ -110,5 +110,13 @@ if (!vidURL) {
     videoPlayerPage.append(vidPlayerExtraInfoContainer);
     vidPlayerExtraInfoContainer.append(vidPlayerDate);
     vidPlayerExtraInfoContainer.append(vidPlayerDescription);
+
+    sleep(200).then(() => { videoPlayer.remove(); })
+    sleep(300).then(() => { videoContainer.append(videoPlayer); })
+
+
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
