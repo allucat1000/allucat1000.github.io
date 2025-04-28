@@ -41,6 +41,7 @@ if (!vidURL) {
     const videoId = vidURL;
     const vidPlayerTitle = document.createElement("h1");
     const vidPlayerAuthor = document.createElement("a");
+    const vidPlayerLikeCount = document.createElement("p");
     const vidPlayerDate = document.createElement("h3");
     const vidPlayerDescription = document.createElement("h3");
 
@@ -64,16 +65,8 @@ if (!vidURL) {
     fetch(vidDataURL)
         .then(response => response.json())
         .then(data => {
-            const date = new Date(data.dateCreated);
-            const options = {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-            };
-            
-            vidPlayerDate.textContent = date.toLocaleString("en-US", options);
+            vidPlayerLikeCount.textContent = `${data.likes} likes – ${data.dislikes} dislikes`
+            vidPlayerDate.textContent = `${data.viewCount} views`;
             
         })
     .catch(error => {
@@ -87,35 +80,33 @@ if (!vidURL) {
     .then(response => response.text())
     .then(data => {
         let pattern, match = "";
+
+        pattern = /"attributedDescriptionBodyText":{"content":"((?:[^"\\]|\\.)*)"/;
+        match = data.match(pattern);
         
-        const STAT = "description"; 
-        
-        switch (STAT) {
-            case "description":
-                pattern = /"attributedDescriptionBodyText":{"content":"((?:[^"\\]|\\.)*)"/;
-                match = data.match(pattern);
-                
-                if (match) {
-                    vidPlayerDescription.textContent = match[1].replace(/\\n/g, "\n");
-                } else {
-                    vidPlayerDescription.textContent = "Description not found";
-                }
-                break;
-                
+        if (match) {
+            vidPlayerDescription.textContent = match[1].replace(/\\n/g, "\n");
+        } else {
+            vidPlayerDescription.textContent = "Description not found";
         }
+
+
     })
     .catch(error => {
         console.error('Failed to fetch video description:', error);
         vidPlayerDescription.textContent = "Failed to load description";
     });
+
     const vidPlayerExtraInfoContainer = document.createElement("div");
     vidPlayerExtraInfoContainer.classList.add("vidPlayerInfoContainer");
     vidPlayerDate.classList.add("descText");
     vidPlayerDescription.classList.add("authorText");
     vidPlayerTitle.classList.add("titleText");
     vidPlayerAuthor.classList.add("descText");
+    vidPlayerLikeCount.classList.add("descText");
     videoPlayerPage.append(vidPlayerTitle);
     videoPlayerPage.append(vidPlayerAuthor);
+    videoPlayerPage.append(vidPlayerLikeCount)
     videoPlayerPage.append(vidPlayerExtraInfoContainer);
     vidPlayerExtraInfoContainer.append(vidPlayerDate);
     vidPlayerExtraInfoContainer.append(vidPlayerDescription);
