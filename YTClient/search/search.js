@@ -37,7 +37,7 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
     if (searchQueryChannel = true) {
         try {
             const channelHandle = (searchQuery.split(' ')[0])
-            const response = await fetch(proxy + encodeURIComponent(`https://youtube.com/${channelHandle}`));
+            const response = await fetch(proxy + encodeURIComponent(`https://youtube.com/@${channelHandle}`));
             if (response.ok) {
                 const text = await response.text();
                 let match, pattern;
