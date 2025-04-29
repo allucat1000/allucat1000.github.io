@@ -27,11 +27,14 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 
     if (searchQuery.charAt(0) === '@') {
         searchQuery = (searchQuery.split('@')[1])
+        const searchQueryChannel = true;
+    } else {
+        const searchQueryChannel = false;
     }
     const VidSearch = encodeURIComponent(searchQuery);
     const baseYTURL = `https://www.youtube.com/results?search_query=${VidSearch}&gl=GB&hl=en`;
     const response = await fetch(proxy + encodeURIComponent(baseYTURL));
-    if (searchQuery.charAt(0) === '@') {
+    if (searchQueryChannel = true) {
         try {
             const channelHandle = (searchQuery.split(' ')[0])
             const response = await fetch(proxy + encodeURIComponent(`https://youtube.com/${channelHandle}`));
