@@ -44,6 +44,7 @@ if (!vidURL) {
     const vidPlayerLikeCount = document.createElement("p");
     const vidPlayerDate = document.createElement("h3");
     const vidPlayerDescription = document.createElement("h3");
+    const vidPlayerExtraInfoContainer = document.createElement("div");
 
     // Video info fetching
     const oEmbedUrl = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`;
@@ -97,13 +98,15 @@ if (!vidURL) {
         vidPlayerDescription.textContent = "Failed to load description";
     });
 
-    const vidPlayerExtraInfoContainer = document.createElement("div");
+    // Class adding
     vidPlayerExtraInfoContainer.classList.add("vidPlayerInfoContainer");
     vidPlayerDate.classList.add("descText");
     vidPlayerDescription.classList.add("authorText");
     vidPlayerTitle.classList.add("titleText");
     vidPlayerAuthor.classList.add("descText");
     vidPlayerLikeCount.classList.add("descText");
+
+    // Appending
     videoPlayerPage.append(vidPlayerTitle);
     videoPlayerPage.append(vidPlayerAuthor);
     videoPlayerPage.append(vidPlayerLikeCount)
@@ -111,8 +114,14 @@ if (!vidURL) {
     vidPlayerExtraInfoContainer.append(vidPlayerDate);
     vidPlayerExtraInfoContainer.append(vidPlayerDescription);
 
-    sleep(200).then(() => { videoPlayer.remove(); })
-    sleep(300).then(() => { videoContainer.append(videoPlayer); })
+    // Load fix (goofy ik)
+    sleep(200).then(() => { 
+        videoPlayer.remove(); 
+    })
+    
+    sleep(300).then(() => { 
+        videoContainer.append(videoPlayer); 
+    })
 
 
 }
