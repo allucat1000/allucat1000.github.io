@@ -32,6 +32,7 @@ if (!vidURL) {
 
     videoPlayer.style.maxWidth = "100%";
     videoPlayer.style.border = "none";
+    videoPlayer.style.display = "none";
 
     videoContainer.append(videoPlayer);
     videoPlayerPage.append(videoContainer);
@@ -115,11 +116,12 @@ if (!vidURL) {
     vidPlayerExtraInfoContainer.append(vidPlayerDescription);
 
     // Load fix (goofy ik)
-    sleep(200).then(() => { 
+    sleep(650).then(() => { 
         videoPlayer.remove(); 
     })
     
-    sleep(300).then(() => { 
+    sleep(750).then(() => { 
+        videoPlayer.style.display = "block";
         videoContainer.append(videoPlayer); 
     })
 
