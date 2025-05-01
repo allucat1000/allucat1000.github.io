@@ -19,7 +19,7 @@ function openPatchNotes() {
     siteDiv.append(patchNotesTitle);
 
     // Patch notes
-    const patchNotesData = "v0.6 - Added patch notes. \n\n• Added way to view updates on homepage. \n• Small bugfixes. \\e v0.5 - Mobile improvements & Fixes \n\n• Made mobile layout better \n• Fixed some small bugs."
+    const patchNotesData = "v0.61 — Name change & Mobile Changes \n\n• Changed name to be unshortened (YT Client to YouTube Client). \n• Made top search bar align to the right on mobile.\\e v0.6 — Added patch notes. \n\n• Added way to view updates on homepage. \n• Small bugfixes. \\e v0.5 — Mobile improvements & Fixes \n\n• Made mobile layout better. \n• Fixed some small bugs. \\e v0.49 - 0.1 — I'm too lazy to check my commits for the older patch notes, sorry! \n\nAlso thanks for taking the time to go look at the patch notes!"
     const patchNotesElems = patchNotesData.split('\\e ')
     
     for (let i = 0; i < patchNotesElems.length; i++) {

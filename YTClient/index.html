@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTClient</title>
+    <title>YouTube Client</title>
     <style type="text/css">
         html, body{
             font-family: sans-serif;
@@ -83,6 +83,7 @@
             border-radius: 1.5em;
             outline: none;
             box-sizing: border-box;
+            right: 0.1em;
         }
         .patchNotesButton{
             width: 10em;
@@ -120,6 +121,9 @@
             font-size: 0.9em;
             padding-left: 12px;
         }
+        nav{
+            justify-content: end;
+        }
         .mainSearchBar {
             width: 80%;
         }
@@ -129,12 +133,12 @@
 <body>
     <div id="siteDiv" class="mainPage">
         <nav>
-            <a class="navItem" href="index.html">YT Client</a>
+            <a class="navItem" href="index.html">YouTube Client</a>
             <input id="topSearchBar" placeholder="Search for something" class="topSearchBar">
         </nav>
         
         <div id="mainItems">
-            <h1 class="mainTitle">YT Client</h1>
+            <h1 class="mainTitle">YouTube Client</h1>
             <input id="mainSearchBar" placeholder="What will you search for today?" class="mainSearchBar">
             <script>
                 document.addEventListener("keydown", function(event) {

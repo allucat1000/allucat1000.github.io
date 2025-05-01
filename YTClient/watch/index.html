@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTClient</title>
+    <title>YouTube Client</title>
     <style type="text/css">
         body{
             font-family: sans-serif;
@@ -132,14 +132,17 @@
             font-size: 0.9em;
             padding-left: 12px;
         }
+        nav{
+            justify-content: end;
+        }
     }
     </style>
 </head>
 <body>
     <div id="videoPlayerPage" class="videoPlayerPage">
         <nav>
-            <a class="navItem" href="../index.html">YT Client</a>
-            <input id="topSearchBar" placeholder="Search for something here" class="topSearchBar">
+            <a class="navItem" href="../index.html">YouTube Client</a>
+            <input id="topSearchBar" placeholder="Search for something" class="topSearchBar">
             <script>
                 document.addEventListener("keydown", function(event) {
                     const activeElement = document.activeElement;
