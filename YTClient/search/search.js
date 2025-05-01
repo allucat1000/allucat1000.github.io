@@ -25,16 +25,18 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
     SearchLoadingText.classList.add("smallTitle");
     searchDiv.append(SearchLoadingText);
 
+    let searchQueryChannel = false
     if (searchQuery.charAt(0) === '@') {
         searchQuery = (searchQuery.split('@')[1])
-        const searchQueryChannel = true;
+        searchQueryChannel = true;
     } else {
-        const searchQueryChannel = false;
+        searchQueryChannel = false;
     }
+
     const VidSearch = encodeURIComponent(searchQuery);
     const baseYTURL = `https://www.youtube.com/results?search_query=${VidSearch}&gl=GB&hl=en`;
     const response = await fetch(proxy + encodeURIComponent(baseYTURL));
-    if (searchQueryChannel = true) {
+    if (searchQueryChannel === true) {
         try {
             const channelHandle = (searchQuery.split(' ')[0])
             const response = await fetch(proxy + encodeURIComponent(`https://youtube.com/@${channelHandle}`));
@@ -51,7 +53,6 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
                   let count = match[1][1];
                   count = count.split(/\s+/);
                   SubCount = count.length > 2 ? `${count[0]} ${count[1]}` : count[0];
-                  console.log(SubCount)
                 } else { 
                     console.error('Sub Count not found. Most likely invalid URL.'); 
                     showChannel = false;
@@ -77,24 +78,31 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
                     const channelCardPFP = document.createElement("img");
 
                     // Styling
-                    channelCard.style.width = "50%"
+                    channelCard.style.minWidth = "50vw";
+                    channelCard.style.maxWidth = "90vw";
                     channelCard.style.margin = "30px auto";
                     channelCard.style.padding = "15px";
                     channelCard.style.border = "1.5px solid #444";
                     channelCard.style.borderRadius = "10px";
-                    channelCard.style.backgroundColor = "#222";
                     channelCard.style.display = "flex";
+                    channelCard.style.flexWrap = "wrap";
+                    channelCard.style.backgroundColor = "#222";
                     channelCard.style.alignItems = "center";
                     channelCard.style.gap = "15px";
 
                     channelCardTitle.textContent = ChannelName;
-                    channelCardTitle.href = `https://youtube.com/${channelHandle}`;
+                    channelCardTitle.href = `https://youtube.com/@${channelHandle}`;
                     channelCardTitle.target = "_blank";
                     channelCardTitle.style.color = "white";
                     channelCardTitle.style.fontSize = "3em";
                     channelCardTitle.style.textDecoration = "none";
                     channelCardTitle.style.textAlign = "left";
                     channelCardTitle.style.margin = "15px 0px";
+                    if (window.innerWidth > 600) {
+                        channelCardTitle.style.margin = "15px 0px";
+                    } else {
+                        channelCardTitle.style.margin = "15px 15px";
+                    }
 
                     channelCardSubCount.textContent = `${SubCount} subscribers`;
                     channelCardSubCount.style.color = "#ccc";
@@ -103,6 +111,7 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
                     channelCardSubCount.style.textAlign = "left";
                     channelCardSubCount.style.margin = "0px 15px";
 
+                    channelCardPFP.style.display = "block";
                     channelCardPFP.src = pfp;
                     channelCardPFP.width = 65;
                     channelCardPFP.style.borderRadius = "100%";
@@ -110,7 +119,9 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
 
                     // Appending
                     searchDiv.appendChild(channelCard);
-                    channelCard.appendChild(channelCardPFP);
+                    if (window.innerWidth > 600) {
+                        channelCard.appendChild(channelCardPFP);
+                    }
                     channelCard.appendChild(channelCardTitle);
                     channelCard.appendChild(channelCardSubCount);
                 }
@@ -185,6 +196,7 @@ async function generateVideoInfo(vidID) {
             title.style.fontSize = "1.2em";
             title.style.textDecoration = "none";
             title.style.textAlign = "left";
+            title.style.display = "block";
 
             const author = document.createElement("a");
             const authorUrl = jsonData.author_url;
