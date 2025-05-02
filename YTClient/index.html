@@ -20,6 +20,10 @@
             text-align: center;
             font-size: 4em;
         }
+        .smallTitle{
+            color: #ffffff;
+            text-align: center;
+        }
         .patchNotesText{
             color: #ffffff;
             text-align: center;
@@ -35,22 +39,6 @@
             border-radius: 1em;
             background-color: #1d1d1d;
 
-        }
-        .mainSearchBar {
-            display: block;
-            width: 100%;
-            max-width: 35em;
-            height: 4em;
-            padding-left: 20px;
-            padding-right: 50px;
-            margin: 0 auto;
-            font-size: 1em;
-            color: #ffffff;
-            background-color: rgb(35, 35, 35);
-            border: 1px solid rgb(55, 55, 55);
-            border-radius: 1.5em;
-            outline: none;
-            box-sizing: border-box;
         }
         nav {
             background-color: #232323;
@@ -135,23 +123,19 @@
         <nav>
             <a class="navItem" href="index.html">YouTube Client</a>
             <input id="topSearchBar" placeholder="Search for something" class="topSearchBar">
-        </nav>
-        
-        <div id="mainItems">
-            <h1 class="mainTitle">YouTube Client</h1>
-            <input id="mainSearchBar" placeholder="What will you search for today?" class="mainSearchBar">
             <script>
                 document.addEventListener("keydown", function(event) {
                     const activeElement = document.activeElement;
-                    if (activeElement.id === "mainSearchBar" && event.key === "Enter") {
-                        window.location.href = `search/index.html?q=${mainSearchBar.value}`;
-                    }
-
                     if (activeElement.id === "topSearchBar" && event.key === "Enter") {
                         window.location.href = `search/index.html?q=${topSearchBar.value}`;
                     }
                 });
             </script>
+        </nav>
+        
+        <div id="mainItems">
+            <h1 class="mainTitle">Trending</h1>
+            <h1 id="loadTitle" class="smallTitle">Loading Trending...</h1>
             <button onclick="openPatchNotes()" id="patchNotesButton" class="patchNotesButton">Patch notes</button>
         </div>
     </div> 
