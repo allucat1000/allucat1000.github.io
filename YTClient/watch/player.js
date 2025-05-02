@@ -56,6 +56,15 @@ if (!vidURL) {
             vidPlayerTitle.textContent = data.title;
             vidPlayerAuthor.textContent = data.author_name;
             vidPlayerAuthor.href = data.author_url;
+
+            // Recommendation Logging
+            const match = (data.title).match(/#(\w+)/);
+            const recommendationQueryStore = localStorage.getItem('recommendationQueryStore');
+            if (match) {
+                localStorage.setItem('recommendationQueryStore', [recommendationQueryStore, match[0], data.author_name].join(' '));
+            } else{
+                localStorage.setItem('recommendationQueryStore',[recommendationQueryStore, data.author_name].join(' '));
+            }
         })
     .catch(error => {
         console.error('Failed to fetch video data:', error);
@@ -124,10 +133,8 @@ if (!vidURL) {
         videoPlayer.style.display = "block";
         videoContainer.append(videoPlayer); 
     })
-
-
 }
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+    }
