@@ -20,9 +20,11 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
           siteDiv.append(searchRecommendationTitle);
       } else{
         let recommendationQueryStore = localStorage.getItem('recommendationQueryStore')
-        if (recommendationQueryStore.length > 8) {
-          recommendationQueryStore.slice((recommendationQueryStore.length - 8),(recommendationQueryStore.length))
+        recommendationQueryStore = recommendationQueryStore.split(' ')
+        if (recommendationQueryStore.length > 10) {
+          recommendationQueryStore = recommendationQueryStore.slice((recommendationQueryStore.length - 10),(recommendationQueryStore.length))
         }
+        console.log(recommendationQueryStore)
         const suggestionQuery = encodeURIComponent(recommendationQueryStore);
         const response = await fetch(`${proxy}${encodeURIComponent(`https://www.youtube.com/results?search_query=${suggestionQuery}&gl=GB&hl=en`)}`);
           if (response.ok) {
@@ -141,7 +143,7 @@ function openPatchNotes() {
     siteDiv.append(patchNotesTitle);
 
     // Patch notes
-    const patchNotesData = "v0.71 — Limited algorithm query length\n\n• Clamped algorithm length. \\e v0.7 — Bug fixes & HUGE Recommendation feature\n\n• You can now view recommendations on the homepage. \n• Fixed some pesky bugs!\\e v0.62 — Main page as trending \n\n• Made homepage show trending videos.\\e v0.61 — Name change & Mobile changes \n\n• Changed name to be unshortened (YT Client to YouTube Client). \n• Made top search bar align to the right on mobile.\\e v0.6 — Added patch notes. \n\n• Added way to view updates on homepage. \n• Small bugfixes. \\e v0.5 — Mobile improvements & Fixes \n\n• Made mobile layout better. \n• Fixed some small bugs. \\e v0.49 - 0.1 — I'm too lazy to check my commits for the older patch notes, sorry! \n\nAlso thanks for taking the time to go look at the patch notes!"
+    const patchNotesData = "v0.71 — Limited algorithm query length\n\n• Clamped algorithm length. \\ev0.7 — Bug fixes & HUGE Recommendation feature\n\n• You can now view recommendations on the homepage. \n• Fixed some pesky bugs!\\e v0.62 — Main page as trending \n\n• Made homepage show trending videos.\\e v0.61 — Name change & Mobile changes \n\n• Changed name to be unshortened (YT Client to YouTube Client). \n• Made top search bar align to the right on mobile.\\e v0.6 — Added patch notes. \n\n• Added way to view updates on homepage. \n• Small bugfixes. \\e v0.5 — Mobile improvements & Fixes \n\n• Made mobile layout better. \n• Fixed some small bugs. \\e v0.49 - 0.1 — I'm too lazy to check my commits for the older patch notes, sorry! \n\nAlso thanks for taking the time to go look at the patch notes!"
     const patchNotesElems = patchNotesData.split('\\e ')
     
     for (let i = 0; i < patchNotesElems.length; i++) {
