@@ -24,7 +24,6 @@ const proxy = "https://api.codetabs.com/v1/proxy?quest=";
         if (recommendationQueryStore.length > 10) {
           recommendationQueryStore = recommendationQueryStore.slice((recommendationQueryStore.length - 10),(recommendationQueryStore.length))
         }
-        console.log(recommendationQueryStore)
         const suggestionQuery = encodeURIComponent(recommendationQueryStore);
         const response = await fetch(`${proxy}${encodeURIComponent(`https://www.youtube.com/results?search_query=${suggestionQuery}&gl=GB&hl=en`)}`);
           if (response.ok) {

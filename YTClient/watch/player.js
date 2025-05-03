@@ -57,13 +57,14 @@ if (!vidURL) {
             vidPlayerAuthor.textContent = data.author_name;
             vidPlayerAuthor.href = data.author_url;
 
-            // Recommendation Logging
+            // Recommendations
             const match = (data.title).match(/#(\w+)/);
             const recommendationQueryStore = localStorage.getItem('recommendationQueryStore');
+            const authorHandle = data.author_url.replace('https://www.youtube.com/', '')
             if (match) {
-                localStorage.setItem('recommendationQueryStore', [recommendationQueryStore, match[0], data.author_name].join(' '));
+                localStorage.setItem('recommendationQueryStore', [recommendationQueryStore, match[0], authorHandle, '\\a'].join(' '));
             } else{
-                localStorage.setItem('recommendationQueryStore',[recommendationQueryStore, data.author_name].join(' '));
+                localStorage.setItem('recommendationQueryStore',[recommendationQueryStore, authorHandle, '\\a'].join(' '));
             }
         })
     .catch(error => {
