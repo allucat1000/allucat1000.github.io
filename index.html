@@ -43,7 +43,7 @@
             margin: 0.7em auto;
         }
 
-        div {
+        .text {
             background-color: rgb(32, 15, 30);
             padding: 2.5em;
             width: 90%;
@@ -66,14 +66,13 @@
             text-decoration: none;
             border-radius: 0.5em;
             transition: 0.15s;
-            width: 20em;
-            height: 4em;
             margin-left: 1em;
             margin-right: 1em;
         }
 
         .button:hover {
             cursor: pointer;
+            padding: 1.05em;
         }
 
         .button:active {
@@ -90,23 +89,59 @@
             -webkit-text-stroke: 1px rgb(198, 126, 211);
             color: rgb(198, 126, 211);
         }
+
+        .buttonContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1em;
+        }
+
+
+        @media screen and (max-width: 700px) {
+            .title {
+                font-size: 2em;
+            }
+
+            .subTitle {
+                font-size: 1.5em;
+            }
+
+            div {
+                max-width: 70vw;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                margin: 0.5em 0;
+                width: 90%;
+                max-width: 20em;
+            }
+        }
+
     </style>
 </head>
 <body>
     <main>
         <h1 class="title">Welcome to my website!</h1>
         <section>
-            <div>
+            <div class="text">
                 <h2 class="subTitle">Hi! I'm <strong class="bold">Allucat1000</strong>.</h2>
                 <h2 class="subTitle">I like programming with weird languages, such as Apple Shortcuts and Geometry Dash</h2>
                 <h2 class="subTitle">I started programming on Scratch in 2021. Then in 2024, I learned the basics of Godot. Currently I'm learning HTML, CSS and JavaScript.<h2>
-                <h2 class="subTitle">This is the 5th version of my website. The first 2 were made in Scratch, while the others were made using HTML.</h2>
+                <h2 class="subTitle">This is the fifth version of my website. The first two versions were made in Scratch, while the later ones were made using <strong class="">HTML</strong>.</h2>
             </div>
 
-            <div>
+            <div class="text">
                 <h2 style="padding-bottom: 1.5em;" class="subTitle">Here are some of my projects:</h2>
-                <a href="https://allucat1000.github.io/YTClient" class="button">YouTube Client</a>
-                <a href="https://allucat1000.github.io/LinuxCmds" class="button">Useful Debian Linux commands</a>
+                <div class="buttonContainer">
+                    <a href="https://allucat1000.github.io/YTClient" class="button">YouTube Client</a>
+                    <a href="https://allucat1000.github.io/LinuxCmds" class="button">Useful Debian Linux commands</a>
+                </div>
             </div>
         </section>
     </main>
