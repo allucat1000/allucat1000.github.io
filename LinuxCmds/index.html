@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
+    <title>Useful Linux Commands</title>
+    <style>
+        html {
+            background-color: rgb(20, 3, 23);
+            color: rgb(216, 185, 220);
+            text-align: center;
+            margin: auto;
+            display: block;
+            padding: 0px;
+            font-family: 'SF Pixelate', sans-serif;
+        }
+
+        .title {
+            font-size: 2.5em;
+            padding-top: 0.1em;
+            padding-bottom: 0.4em;
+        }
+
+        .subtitle {
+            font-size: 1.75em;
+            padding-bottom: 0.3em;
+            max-width: 50%;
+            margin: auto;
+        }
+
+        .cmdTitle {
+            font-size: 1.75em;
+            padding-bottom: 0.1em;
+        }
+
+        .cmdCategory {
+            font-size: 2.25em;
+            padding-bottom: 0.3em;
+        }
+
+        .indent {
+            line-height: 9px;
+            background-color: rgb(32, 15, 30);
+            padding: 0.3em;
+            width: 90%;
+            display: block;
+            border-radius: 0.5em;
+            border-color: rgb(67, 41, 64);
+            border-width: 0.em;
+            border-style: solid;
+            margin: auto;
+            position: relative;
+        }
+
+        .copyBtn {
+            position: absolute;
+            top: 0.2em;
+            right: 0.2em;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-style: none;
+            padding: 0.4em;
+            border-radius: 0.25em;
+            transition: 0.15s;
+        }
+
+        .copyBtn:hover {
+            cursor: pointer;
+        }
+
+        .copyBtn:active {
+            background-color: rgba(170, 170, 170, 0.1);
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Useful Linux Commands</h1>
+    <h3 class="subtitle">Here are some Linux commands, so that you don't have to remember so much stuff. Keep in mind
+        these are designed for Debian.</h3>
+    <h3 class="cmdCategory">• Install scripts</h3>
+    <h3 class="cmdTitle">Gnome install</h3>
+    <div id="gnomeinstalldiv" class="indent">
+        <button id="gnomeinstall" class="copyBtn">Copy</button>
+        <p>sudo apt update</p>
+        <p>sudo apt install gnome</p>
+        <p>sudo reboot</p>
+    </div>
+
+    <h3 class="cmdTitle">XFCE install</h3>
+    <div id="xfceinstalldiv" class="indent">
+        <button id="xfceinstall" class="copyBtn">Copy</button>
+        <p>sudo apt update</p>
+        <p>sudo apt install xfce4 xfce4-goodies</p>
+        <p>sudo apt install lightdm</p>
+        <p>sudo reboot</p>
+    </div>
+
+    <h3 class="cmdTitle">KDE Install</h3>
+    <div id="kdeinstalldiv" class="indent">
+        <button id="kdeinstall" class="copyBtn">Copy</button>
+        <p>sudo apt update</p>
+        <p>sudo apt install kde-standard</p>
+        <p>sudo reboot</p>
+    </div>
+
+    <h3 class="cmdCategory">• Miscellaneous</h3>
+
+    <h3 class="cmdTitle">Flatpak install (terminal)</h3>
+    <div id="flatpakinstalldiv" class="indent">
+        <button id="flatpakinstall" class="copyBtn">Copy</button>
+        <p>sudo apt update</p>
+        <p>sudo apt install flatpak</p>
+        <p>sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo</p>
+        <p>reboot</p>
+    </div>
+
+    <h3 class="cmdTitle">Give sudo perms</h3>
+    <div id="sudogivediv" class="indent">
+        <button id="sudogive" class="copyBtn">Copy</button>
+        <p>usermod -aG sudo (replace with the account to give sudo to)</p>
+        <p>reboot</p>
+    </div>
+
+    <p>(C) Allucat1000</p>
+
+    <!--Copy buttons :P-->
+    <script>
+        document.getElementById("gnomeinstall").addEventListener('click', () => {
+            const lines = Array.from(document.querySelectorAll("#gnomeinstalldiv p"))
+                .map(p => p.textContent)
+                .join("\n");
+            navigator.clipboard.writeText(lines);
+        });
+
+        document.getElementById("xfceinstall").addEventListener('click', () => {
+            const lines = Array.from(document.querySelectorAll("#xfceinstalldiv p"))
+                .map(p => p.textContent)
+                .join("\n");
+            navigator.clipboard.writeText(lines);
+        });
+        document.getElementById("kdeinstall").addEventListener('click', () => {
+            const lines = Array.from(document.querySelectorAll("#kdeinstalldiv p"))
+                .map(p => p.textContent)
+                .join("\n");
+            navigator.clipboard.writeText(lines);
+        });
+        
+        document.getElementById("flatpakinstall").addEventListener('click', () => {
+            const lines = Array.from(document.querySelectorAll("#flatpakinstalldiv p"))
+                .map(p => p.textContent)
+                .join("\n");
+            navigator.clipboard.writeText(lines);
+        });
+
+        document.getElementById("sudogive").addEventListener('click', () => {
+            const lines = Array.from(document.querySelectorAll("#sudogivediv p"))
+                .map(p => p.textContent)
+                .join("\n");
+            navigator.clipboard.writeText(lines);
+        });
+    </script>
+</body>
+
+</html>
