@@ -3,268 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
     <link rel="preload" href="HuopaLogo.png" as="image">
-    <title>Allucat1000's Website</title>
-    <meta name="description" content="Welcome to Allucat1000's website. Here you can find my projects and get to know me.">
+    <link rel="icon" type="image/x-icon" href="HuopaLogo.png" type="image/png">
     <meta property="og:title" content="Allucat1000's Website">
     <meta property="og:description" content="Welcome to my website! You can see my projects here and get to know me a bit better.">
-    <link rel="icon" type="image/x-icon" href="HuopaLogo.png" type="image/png">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet"></noscript>
-    
-    <meta name="robots" content="all">
-    <link rel="preload" href="IMG_3795.png" as="image">
+    <title>Allucat1000's Website</title>
+    <style>
+        html {
+            background-color: rgb(20, 3, 23);
+            color: rgb(216, 185, 220);
+            text-align: center;
+            margin: auto;
+            display: block;
+            padding: 0px;
+            font-family: 'SF Pixelate', sans-serif;
+        }
 
-    
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Allucat1000",
-          "url": "https://allucat1000.github.io",
-          "sameAs": [
-            "https://youtube.com/@PeanutbutterMonke",
-            "https://allucat1000.itch.io"
-          ],
-          "jobTitle": "Developer",
-          "knowsAbout": ["Scratch", "Godot", "HTML", "CSS", "JavaScript"],
-          "description": "My personal website showcasing my projects and interests."
+        .title {
+            color: rgb(233, 201, 237);
+            font-size: 4em;
+            padding-top: 0.3em;
+            padding-bottom: 0.4em;
+            -webkit-text-stroke: 1px rgb(233, 201, 237);
         }
-        </script>
-        
 
-    <style type="text/css">
-        body{
-            background-color: rgb(0, 0, 0);
-            width: 100%;
-            height: 100%;
-            margin: 0px;
-        }
-        .title{
-            font-family: 'Poppins', sans-serif;
-            display: block;
-            overflow: hidden;
-            animation: RevealAnim 1.5s ease-out forwards;
-            animation-delay: 0.1s;
-            clip-path: inset(0 100% 0 0);
-            margin: auto;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0.5em;
-            font-size: 3.5em;
-            color: #ffffff;
-            text-align: center;
-        }
-        @keyframes RevealAnim {
-            to {
-                clip-path: inset(0 0 0 0);
-            }
-        }
-        .semi-title{
-            font-family: 'Poppins', sans-serif;
-            display: block;
-            overflow: hidden;
-            animation: RevealAnim 2.5s ease-out forwards;
-            animation-delay: 0.75s;
-            clip-path: inset(0 100% 0 0);
+        .subTitle {
+            color: rgb(190, 156, 195);
+            font-size: 2.25em;
+            max-width: 90%;
             margin: auto;
             padding: 0.5em;
+        }
+
+        .smallTitle {
             font-size: 2em;
-            color: #ffffff;
-            text-align: center;
+            padding-bottom: 0.1em;
+            max-width: 80%;
+            margin: 0.7em auto;
         }
-        .info-title{
-            font-family: 'Poppins', sans-serif;
+
+        div {
+            background-color: rgb(32, 15, 30);
+            padding: 2.5em;
+            width: 90%;
             display: block;
-            overflow: hidden;
-            animation: RevealAnim 2s ease-out forwards;
-            animation-delay: 0.75s;
-            clip-path: inset(0 100% 0 0);
-            margin: auto;
-            padding: 0.5em;
-            padding-bottom: 1em;
-            font-size: 1.5em;
-            color: #ffffff;
-            text-align: center;
-        }
-        .profiles-title{
-            font-family: 'Poppins', sans-serif;
-            display: block;
-            overflow: hidden;
-            animation: RevealAnim 2.5s ease-out forwards;
-            animation-delay: 1.5s;
-            clip-path: inset(0 100% 0 0);
-            margin: auto;
-            margin-top: 1em;
-            padding: 0.5em;
-            font-size: 2em;
-            color: #ffffff;
-            text-align: center;
-        }
-        .bgdiv{
-            display: block;
-            background-color: rgba(255, 255, 255, 0);
-            margin-top: 1em;
-            width: fit-content;
-            padding: 1em;
-            border-radius: 1.5em;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: fadeIn 0.5s linear forwards;
-            animation-delay: 2s;
-        }
-        .project-item{
-            font-family: 'Poppins', sans-serif;
-            padding-right: 1em;
-            padding-left: 1em;
-            padding-top: 0.7em;
-            padding-bottom: 0.7em;
-            height: 4em;
-            color: #00000000;
-            background-color: rgb(255, 255, 255);
+            border-radius: 0.5em;
+            border-color: rgb(67, 41, 64);
+            border-width: 0.em;
             border-style: solid;
-            border-radius: 0.8em;
-            border-width: 0.2em;
-            border-color: rgb(170, 170, 170);
-            transition: 0.1s;
+            position: relative;
+            margin: 1.5em auto;
+            padding-bottom: 3.5em;
         }
-        .project-item-text{
-            color: #000000;
+
+        .button {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-style: solid;
+            border-color: rgb(118, 96, 122);
+            color: white;
+            padding: 1.2em;
+            text-decoration: none;
+            border-radius: 0.5em;
+            transition: 0.15s;
+            width: 20em;
+            height: 4em;
+            margin-left: 1em;
+            margin-right: 1em;
         }
-        .project-item:hover{
-            background-color: rgb(220, 220, 220);
+
+        .button:hover {
             cursor: pointer;
         }
-        .link{
-            text-align: center;
-            color: rgb(76, 225, 255);
-            -webkit-text-stroke: 0.3px rgb(76, 225, 255);
-        }
-        .site{
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(IMG_3795.png);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 0.5s linear forwards;
-        }
-        .centericon{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 6em;
-            block-size: 6em;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
 
-        /* Clicker CSS here */
-        
-        .clickeractivate{
-            opacity: 1;
-            background-color: #ffffff13;
-            color: #ffffff;
-            position: absolute;
-            bottom: 0px;
-            left: 60px;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-        .clicker-button{
-            font-family: 'Poppins', sans-serif;
-            border-color: #13668f;
-            border-width: 0.3em;
-            color: #ffffff;
-            background-color: #1c7bd4;
-            display: block;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-            width: 12em;
-            height: 12em;
-            border-radius: 50%;
-            border-style: solid;
-            transition: 0.1s ease;
-        }  
-        .clicker-button:hover{
-            border-color: #115c82;
-            background-color: #1971c3;
-        }
-        .clicker-button:active{
-            border-color: #0e4e6d;
-            background-color: #1664ac;
+        .button:active {
+            background-color: rgba(170, 170, 170, 0.1);
             transform: scale(0.95);
         }
-        .clicker-back-button{
-            display: block;
-            font-family: 'Poppins', sans-serif;
-            position: absolute;
-            bottom: 0px;
-            margin-top: 0em;
-            height: 4em;
-            color: #000000;
-            background-color: rgb(255, 255, 255);
-            border-style: solid;
-            border-radius: 0.8em;
-            border-width: 0.2em;
-            border-color: rgb(170, 170, 170);
-            transition: 0.1s;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+
+        .link{
+            text-decoration: none;
+            color: rgb(206, 131, 217);
         }
-        .clicker-back-button:hover{
-            border-color: rgb(120, 120, 120);
-            background-color: rgb(205, 205, 205);
+        
+        .bold{
+            -webkit-text-stroke: 1px rgb(198, 126, 211);
+            color: rgb(198, 126, 211);
         }
     </style>
 </head>
 <body>
-<div class="site" id="site">
     <main>
         <h1 class="title">Welcome to my website!</h1>
         <section>
-            <img src="HuopaLogo.png" alt="Allucat1000 pfp" class="centericon">
+            <div>
+                <h2 class="subTitle">Hi! I'm <strong class="bold">Allucat1000</strong>.</h2>
+                <h2 class="subTitle">I like programming with weird languages, such as Apple Shortcuts and Geometry Dash</h2>
+                <h2 class="subTitle">I started programming on Scratch in 2021. Then in 2024, I learned the basics of Godot. Currently I'm learning HTML, CSS and JavaScript.<h2>
+                <h2 class="subTitle">This is the 5th version of my website. The first 2 were made in Scratch, while the others were made using </h2>
+            </div>
 
-            <h2 class="info-title">Hello! My name is Allucat1000. I like programming and playing <a class="link" href="https://www.gorillatagvr.com/">Gorilla Tag</a>.</h2>
-
-            <h2 class="info-title">I started programming on Scratch in 2021. Then in 2024 I learned the basics of Godot. I'm currently learning HTML and CSS and JavaScript.</h2>
-        </section>
-        <section>
-            <h3 class="semi-title">These are my projects:</h3>
-            <div class="bgdiv">
-                <a class="project-item" href="https://allucat1000.github.io/QuickSearch" style="color: #000000;">
-                    QuickSearch
-                  </a>                  
+            <div>
+                <h2 style="padding-bottom: 1.5em;" class="subTitle">Here are some of my projects:</h2>
+                <a href="https://allucat1000.github.io/YTClient" class="button">YouTube Client</a>
+                <a href="https://allucat1000.github.io/LinuxCmds" class="button">Useful Debian Linux commands</a>
             </div>
         </section>
-        <section>
-            <h4 class="profiles-title">And these are my profiles:</h4>
-            <div class="bgdiv">
-                <a class="project-item" href="https://youtube.com/@PeanutbutterMonke" aria-label="YouTube Profile">
-                    <img src="https://www.iconpacks.net/icons/1/free-icon-youtube-141.png" alt="YouTube icon" style="width:25px; height:25px;">
-                </a>
-                  
-                <a class="project-item" href="https://allucat1000.itch.io" aria-label="Itch.io Profile">
-                    <img src="https://static-00.iconduck.com/assets.00/itch-io-icon-512x512-wwio9bi8.png" alt="Itch.io icon" style="width:25px; height:25px;">
-                </a>
-        </div>
-        </section>
-        <button onclick="clickerActivate()" class="clickeractivate">Funny clicker</button>
     </main>
-</div>
-
-<script src="main.js" defer></script>
-
+    <p>(C) Allucat1000</p>
 </body>
 </html>
