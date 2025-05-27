@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>Sheep is Shoop</title>
+    <style>
+        body{
+            background-color: rgb(230, 230, 230);
+            text-align: center;
+            font-family: sans-serif;
+        }
+        h1{
+            font-size: 4em;
+            -webkit-text-stroke: 1.5px #000000;
+            margin-bottom: 1em;
+        }
+        h2{
+            font-size: 2.5em;
+            margin-bottom: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        input{
+            width: 25%;
+            padding: 1em;
+            border-radius: 1em;
+            border-style: solid;
+            margin-bottom: 1em;
+            background-color: #fff;
+            border-color: #000;
+        }
+        button{
+            width: 5.5em;
+            padding: 1em;
+            border-radius: 1em;
+            border-style: solid;
+            margin-bottom: 1em;
+            background-color: #fff;
+            border-color: #000;
+            transition: 0.1s;
+        }
+        button:hover{
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+        .tableTitle{
+            font-size: 2em;
+        }
+        table {
+            border-collapse: collapse;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin: 0 auto;
+            background-color: rgb(210, 210, 210);
+            width: 75%;
+        }
+
+        thead,
+        tfoot {
+            background-color: rgb(228 240 245);
+        }
+
+        th{
+            border: 1px solid rgb(160 160 160);
+            padding: 20px 0;
+            text-align: center;
+            width: 33%;
+        }
+
+        td{
+            border: 1px solid rgb(160 160 160);
+            padding: 50px 20px;
+            text-align: center;
+            width: 33%;
+            font-size: 1.5em;
+
+        }
+
+        td:last-of-type {
+            text-align: center;
+        }
+
+
+        tbody > tr:nth-of-type(even) {
+            background-color: rgb(237 238 242);
+        }
+        @media screen and (max-width: 600px) {
+            body{
+                max-width: 85%;
+                margin: 0 auto;
+            }
+            h1{
+                font-size: 2.25em;
+                -webkit-text-stroke: 0.5px #000000;
+            }
+            h2{
+                font-size: 1.5em;
+                margin: 1.5em 0;
+            }
+            h3{
+                margin-top: 2em;
+                font-size: 1em;
+            }
+        
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Sheep is Shoop</h1>
+    <h2>The new, more modern, English</h2>
+    <div id="tableDiv">
+        <table>
+    <thead>
+        <tr>
+        <th scope="col">Verbs</th>
+        <th scope="col">Words</th>
+        <th scope="col">Irregular words</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>Primary verb: Take (singular) is took (plural). <br> <br> Plural: replace the first vowel with two "O"s. <br><br> Past tense: add an "S" to the end of a word <br><br><strong>Keep in mind, that these rules don't apply to "can" and "have".</strong> </td>
+        <td>Primary words: Sheep (singular) is shoop (plural). Flower (singular), floweroot (plural).<br><br>Plural: if you have a word with two same vowels next to each other, replace them with "O"s. If they are "O"s, replace them with "E"s. <br><br>Otherwise, add "oot" to the end. If the original verb ends with a vowel, add a ' before the "oot". If the original verb ends with "oot" already, don't add "oot" again.</td>
+        <td>Coming soon...!</td>
+        </tr>
+        <tr>
+        <td>Example: Pick is poock (current tense), poocks (past tense).</td>
+        <td>Example: Plain is ploon, company is companyoot.</td>
+        </tr>
+    </tbody>
+    </table>
+
+        
+    </table>
+    </div>
+    <h2 style="margin-bottom: 1em;">Practice your skills!:</h2>
+    <div id="roadInputDiv">
+        <h3>How would you say "road" in The New English?</h3>
+        <input spellcheck="false" autocorrect="off" id="roadInput">
+        <button onclick="checkAnswer('roadInput')">Check</button>
+    </div>
+    <div id="playInputDiv">
+        <h3>How would you say "play" in past tense?</h3>
+        <input spellcheck="false" autocorrect="off" id="playInput">
+        <button onclick="checkAnswer('playInput')">Check</button>
+    </div>
+    <div id="bootInputDiv">
+        <h3>How would you say "boot"?</h3>
+        <input spellcheck="false" autocorrect="off" id="bootInput">
+        <button onclick="checkAnswer('bootInput')">Check</button>
+    </div>
+     <div id="motorboatInputDiv">
+        <h3>How would you say "motorboat"?</h3>
+        <input spellcheck="false" autocorrect="off" id="motorboatInput">
+        <button onclick="checkAnswer('motorboatInput')">Check</button>
+    </div>
+    <p>© Allucat1000 2025</p>
+</body>
+<script src="main.js" defer></script>
+</html>
