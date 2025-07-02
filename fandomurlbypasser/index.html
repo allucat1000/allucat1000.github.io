@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting you...</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(35, 35, 35);
+            color: white;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+        }
+        a {
+            font-size: medium;
+            color: rgb(120, 120, 255);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Redirecting you to:</h1>
+    <script>
+        const url = new URL(window.location.href);
+        let type = url.searchParams.get("type");
+        let searchQuery = url.searchParams.get("sub");
+        let fixedUrl;
+        if (!searchQuery || !type) {
+            fixedUrl = "No url inputted."
+        } else {
+            if (type === "mc") {
+                fixedUrl = "https://minecraft.wiki/" + searchQuery;
+            }
+        }
+        
+        const urlName = document.createElement("a");
+        urlName.textContent = fixedUrl;
+        if (fixedUrl.startsWith("https://")) {
+            urlName.href = fixedUrl;
+        }
+       
+        const smallText = document.createElement("p");
+        smallText.textContent = "You will get redirected in 1s. After then, if you aren't redirected automatically, press the link above.";
+        document.body.append(urlName, smallText);
+        new Promise(resolve => {
+            setTimeout(() => {
+                window.location.href = fixedUrl;
+                resolve();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
