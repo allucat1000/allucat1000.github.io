@@ -1,0 +1,84 @@
+body {
+    font-family: monospace;
+    background-color: #202020;
+    color: white;
+}
+
+h1 {
+    margin: calc(0.5em + 0.5rem) 0.5em;
+    font-size: 3em;
+}
+h2 {
+    margin: 1em;
+}
+
+gray {
+    color: gray;
+    font-size: small;
+    opacity: 0.5;
+}
+
+blue {
+    color: rgb(68, 193, 235);
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+}
+
+blue:hover {
+    animation: rotate 2s ease-in-out;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+blue.boop {
+    animation: boop 1.4s cubic-bezier(.25,1.5,.5,1);
+}
+
+@keyframes boop {
+    0%   { font-size: 19.5px; }
+    40%  { font-size: 31.2px; }
+    70%  { font-size: 16.9px; }
+    100% { font-size: 19.5px; }
+}
+
+h3 {
+    margin: 1.25em;
+}
+
+.split {
+    border-bottom: rgb(255, 255, 255) 1px solid;
+    margin: 2em 1em;
+    width: 20em;
+}
+
+.list {
+    margin: 1.5em;
+}
+
+ul {
+    list-style: none;
+    padding-inline: 0;
+}
+
+li {
+    margin: 0.5em 0;
+    cursor: default;
+    transition: padding 0.25s ease-out;
+}
+
+li:hover {
+    padding-left: 1em;
+}
+
+.themetoggle {
+    cursor: pointer;
+    color: grey;
+    margin: 1.5em;
+    user-select: none;
+}
